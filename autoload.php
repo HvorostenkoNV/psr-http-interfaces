@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /** ***********************************************************************************************
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *
  * Classes autoloader.

@@ -24,7 +24,7 @@ use InvalidArgumentException;
  *
  * @see http://tools.ietf.org/html/rfc3986 (the URI specification)
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface UriInterface

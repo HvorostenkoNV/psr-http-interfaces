@@ -11,7 +11,7 @@ use Psr\Http\{
  * Handles a server request and produces a response.
  * An HTTP request handler process an HTTP request in order to produce an HTTP response.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface RequestHandlerInterface

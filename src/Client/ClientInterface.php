@@ -10,7 +10,7 @@ use Psr\Http\{
 /** ***********************************************************************************************
  * Client interface.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface ClientInterface

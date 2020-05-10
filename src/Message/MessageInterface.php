@@ -15,7 +15,7 @@ use InvalidArgumentException;
  * @see http://www.ietf.org/rfc/rfc7230.txt
  * @see http://www.ietf.org/rfc/rfc7231.txt
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface MessageInterface

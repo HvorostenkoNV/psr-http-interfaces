@@ -10,7 +10,7 @@ use Psr\Http\Message\RequestInterface;
  *
  * Example: the target host name can not be resolved or the connection failed.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface NetworkExceptionInterface extends ClientExceptionInterface

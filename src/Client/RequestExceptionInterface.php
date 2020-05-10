@@ -11,7 +11,7 @@ use Psr\Http\Message\RequestInterface;
  *     - Request is invalid (e.g. method is missing)
  *     - Runtime request errors (e.g. the body stream is not seekable)
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface RequestExceptionInterface extends ClientExceptionInterface

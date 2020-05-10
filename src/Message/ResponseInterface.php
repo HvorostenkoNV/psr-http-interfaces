@@ -19,7 +19,7 @@ use InvalidArgumentException;
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface ResponseInterface extends MessageInterface

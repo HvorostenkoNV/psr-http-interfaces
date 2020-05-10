@@ -11,7 +11,7 @@ use RuntimeException;
  * a wrapper around the most common operations, including serialization of
  * the entire stream to a string.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface StreamInterface

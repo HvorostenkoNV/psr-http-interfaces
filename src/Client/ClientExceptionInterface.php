@@ -7,7 +7,7 @@ use Throwable;
 /** ***********************************************************************************************
  * Every HTTP client related exception MUST implement this interface.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface ClientExceptionInterface extends Throwable

@@ -5,7 +5,7 @@ namespace Psr\Http\Message;
 /** ***********************************************************************************************
  * Request factory interface.
  *
- * @package HNV\Psr\Http\Intarfaces
+ * @package HNV\Psr\Http\Interfaces
  * @author  Hvorostenko
  *************************************************************************************************/
 interface RequestFactoryInterface
