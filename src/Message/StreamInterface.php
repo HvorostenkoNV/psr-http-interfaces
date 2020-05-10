@@ -151,7 +151,7 @@ interface StreamInterface
      *
      * Warning: This could attempt to load a large amount of data into memory.
      *
-     * This method MUST NOT raise an exception in order to conform with PHP's
+     * This method MUST NOT raise an exception in order to conform with PHP
      * string casting operations.
      *
      * @see http://php.net/manual/en/language.oop5.magic.php#object.tostring

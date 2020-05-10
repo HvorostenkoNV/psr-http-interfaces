@@ -44,7 +44,7 @@ interface UploadedFileInterface
      * operation) to perform the operation.
      *
      * $targetPath may be an absolute path, or a relative path. If it is a
-     * relative path, resolution should be the same as used by PHP's rename()
+     * relative path, resolution should be the same as used by PHP rename()
      * function.
      *
      * The original file or stream MUST be removed on completion.
@@ -83,7 +83,7 @@ interface UploadedFileInterface
     /** **********************************************************************
      * Retrieve the error associated with the uploaded file.
      *
-     * The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.
+     * The return value MUST be one of PHP UPLOAD_ERR_XXX constants.
      *
      * If the file was uploaded successfully, this method MUST return
      * UPLOAD_ERR_OK.
@@ -93,7 +93,7 @@ interface UploadedFileInterface
      *
      * @see http://php.net/manual/en/features.file-upload.errors.php
      *
-     * @return int                          One of PHP's UPLOAD_ERR_XXX constants.
+     * @return int                          One of PHP UPLOAD_ERR_XXX constants.
      ************************************************************************/
     public function getError(): int;
     /** **********************************************************************

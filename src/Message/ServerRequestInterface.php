@@ -51,7 +51,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve server parameters.
      *
      * Retrieves data related to the incoming request environment,
-     * typically derived from PHP's $_SERVER superglobal. The data IS NOT
+     * typically derived from PHP $_SERVER super global. The data IS NOT
      * REQUIRED to originate from $_SERVER.
      *
      * @return  array                       Server parameters.
@@ -60,7 +60,7 @@ interface ServerRequestInterface extends RequestInterface
     /** **********************************************************************
      * Return an instance with the specified cookies.
      *
-     * The data IS NOT REQUIRED to come from the $_COOKIE superglobal, but MUST
+     * The data IS NOT REQUIRED to come from the $_COOKIE super global, but MUST
      * be compatible with the structure of $_COOKIE. Typically, this data will
      * be injected at instantiation.
      *
@@ -80,7 +80,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve cookies.
      *
      * Retrieves cookies sent by the client to the server.
-     * The data MUST be compatible with the structure of the $_COOKIE superglobal.
+     * The data MUST be compatible with the structure of the $_COOKIE super global.
      *
      * @return  array                       Cookies.
      ************************************************************************/
@@ -89,10 +89,10 @@ interface ServerRequestInterface extends RequestInterface
      * Return an instance with the specified query string arguments.
      *
      * These values SHOULD remain immutable over the course of the incoming
-     * request. They MAY be injected during instantiation, such as from PHP's
-     * $_GET superglobal, or MAY be derived from some other value such as the
+     * request. They MAY be injected during instantiation, such as from PHP
+     * $_GET super global, or MAY be derived from some other value such as the
      * URI. In cases where the arguments are parsed from the URI, the data
-     * MUST be compatible with what PHP's parse_str() would return for
+     * MUST be compatible with what PHP parse_str() would return for
      * purposes of how duplicate query parameters are handled, and how nested
      * sets are handled.
      *

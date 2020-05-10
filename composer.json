@@ -1,5 +1,5 @@
 {
-  "name": "HNV/Psr/Http/Interfaces",
+  "name": "hnv/psr-http-interfaces",
   "description": "PSR-7, PSR-15, PSR-17, PSR-18 interfaces package",
   "keywords": [
     "psr-7",
