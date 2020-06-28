@@ -18,7 +18,7 @@
   },
   "autoload": {
     "files": [
-      "autoload.php"
+      "src/autoload.php"
     ]
   }
 }
