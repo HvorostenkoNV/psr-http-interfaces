@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Psr\Http\Message\RequestInterface;
 
-include '..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'autoload.php';
+include '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
 $answer = interface_exists(RequestInterface::class)
     ? [

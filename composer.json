@@ -14,11 +14,11 @@
     }
   ],
   "require": {
-    "php": "^7.2"
+    "php": ">=7.2"
   },
   "autoload": {
-    "files": [
-      "src/autoload.php"
-    ]
+    "psr-4": {
+      "Psr\\Http\\" : "src/"
+    }
   }
 }
