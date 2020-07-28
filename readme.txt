@@ -1,14 +1,9 @@
-variables:
- - $projectRoot             : project root, for example /home/current_user/projects/psr-http-interfaces
- - $projectDockerDirectory  : project docker directory, $projectRoot/docker
- - $httpManualPort          : manual http port, edits into .env configs file
-
 requirements:
  - docker
  - docker compose
 
 project composer installation with docker:
- - go into $projectRoot
+ - go into project root
  - use docker composer container, running:
    $ docker run \
      --rm \
@@ -18,11 +13,11 @@ project composer installation with docker:
      composer install
 
 project testing:
- - go into $projectDockerDirectory
+ - go into project root
  - edit .env
  - lift all containers up, running:
    $ docker-compose up -d
  - check it, running:
    $ docker container ls
  - check project is ok, running:
-   $ curl localhost:$httpManualPort/docker/index.php
+   $ curl localhost:${http manual port from env settings}/tests/index.php
