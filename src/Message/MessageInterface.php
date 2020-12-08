@@ -31,7 +31,7 @@ interface MessageInterface
      *
      * @return  static                      Instance with the specified HTTP protocol version.
      ************************************************************************/
-    public function withProtocolVersion(string $version): self;
+    public function withProtocolVersion(string $version): static;
     /** **********************************************************************
      * Retrieves the HTTP protocol version as a string.
      * The string MUST contain only the HTTP version number (e.g., "1.1", "1.0").
@@ -56,7 +56,7 @@ interface MessageInterface
      *                                      replacing the specified header.
      * @throws  InvalidArgumentException    Invalid header names or values.
      ************************************************************************/
-    public function withHeader(string $name, $value): self;
+    public function withHeader(string $name, string|array $value): static;
     /** **********************************************************************
      * Return an instance with the specified header appended with the given value.
      *
@@ -75,7 +75,7 @@ interface MessageInterface
      *                                      appended with the given value.
      * @throws  InvalidArgumentException    Invalid header names or values.
      ************************************************************************/
-    public function withAddedHeader(string $name, $value): self;
+    public function withAddedHeader(string $name, string|array $value): static;
     /** **********************************************************************
      * Return an instance without the specified header.
      *
@@ -89,7 +89,7 @@ interface MessageInterface
      *
      * @return  static                      Instance without the specified header.
      ************************************************************************/
-    public function withoutHeader(string $name): self;
+    public function withoutHeader(string $name): static;
     /** **********************************************************************
      * Checks if a header exists by the given case-insensitive name.
      *
@@ -181,7 +181,7 @@ interface MessageInterface
      * @return  static                      Instance with the specified message body.
      * @throws  InvalidArgumentException    Body is not valid.
      ************************************************************************/
-    public function withBody(StreamInterface $body): self;
+    public function withBody(StreamInterface $body): static;
     /** **********************************************************************
      * Gets the body of the message.
      *

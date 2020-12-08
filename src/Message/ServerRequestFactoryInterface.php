@@ -26,5 +26,9 @@ interface ServerRequestFactoryInterface
      *
      * @return  ServerRequestInterface              New server request.
      ************************************************************************/
-    public function createServerRequest(string $method, $uri, array $serverParams = []): ServerRequestInterface;
+    public function createServerRequest(
+        string              $method,
+        UriInterface|string $uri,
+        array               $serverParams = []
+    ): ServerRequestInterface;
 }

@@ -18,5 +18,5 @@ interface RequestFactoryInterface
      *
      * @return  RequestInterface                Request.
      ************************************************************************/
-    public function createRequest(string $method, $uri): RequestInterface;
+    public function createRequest(string $method, UriInterface|string $uri): RequestInterface;
 }

@@ -45,7 +45,7 @@ interface UriInterface
      * @return  static                      Instance with the specified scheme.
      * @throws  InvalidArgumentException    Invalid or unsupported schemes.
      ************************************************************************/
-    public function withScheme(string $scheme): self;
+    public function withScheme(string $scheme): static;
     /** **********************************************************************
      * Retrieve the scheme component of the URI.
      *
@@ -77,7 +77,7 @@ interface UriInterface
      *
      * @return  static                      Instance with the specified user information.
      ************************************************************************/
-    public function withUserInfo(string $user, string $password = ''): self;
+    public function withUserInfo(string $user, string $password = ''): static;
     /** **********************************************************************
      * Retrieve the user information component of the URI.
      *
@@ -107,7 +107,7 @@ interface UriInterface
      * @return  static                      Instance with the specified host.
      * @throws  InvalidArgumentException    Invalid hostname.
      ************************************************************************/
-    public function withHost(string $host): self;
+    public function withHost(string $host): static;
     /** **********************************************************************
      * Retrieve the host component of the URI.
      *
@@ -139,7 +139,7 @@ interface UriInterface
      * @return  static                      Instance with the specified port.
      * @throws  InvalidArgumentException    Invalid ports.
      ************************************************************************/
-    public function withPort(int $port = 0): self;
+    public function withPort(int $port = 0): static;
     /** **********************************************************************
      * Retrieve the port component of the URI.
      *
@@ -199,7 +199,7 @@ interface UriInterface
      * @return  static                      Instance with the specified path.
      * @throws  InvalidArgumentException    Invalid paths.
      ************************************************************************/
-    public function withPath(string $path): self;
+    public function withPath(string $path): static;
     /** **********************************************************************
      * Retrieve the path component of the URI.
      *
@@ -243,7 +243,7 @@ interface UriInterface
      * @return  static                      Instance with the specified query string.
      * @throws  InvalidArgumentException    Invalid query strings.
      ************************************************************************/
-    public function withQuery(string $query): self;
+    public function withQuery(string $query): static;
     /** **********************************************************************
      * Retrieve the query string of the URI.
      *
@@ -281,7 +281,7 @@ interface UriInterface
      *
      * @return  static                      Instance with the specified URI fragment.
      ************************************************************************/
-    public function withFragment(string $fragment): self;
+    public function withFragment(string $fragment): static;
     /** **********************************************************************
      * Retrieve the fragment component of the URI.
      *

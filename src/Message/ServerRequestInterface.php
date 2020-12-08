@@ -75,7 +75,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return  static                      Instance with the specified cookies.
      ************************************************************************/
-    public function withCookieParams(array $cookies): self;
+    public function withCookieParams(array $cookies): static;
     /** **********************************************************************
      * Retrieve cookies.
      *
@@ -108,7 +108,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return  static                      Instance with the specified query string arguments.
      ************************************************************************/
-    public function withQueryParams(array $query): self;
+    public function withQueryParams(array $query): static;
     /** **********************************************************************
      * Retrieve query string arguments.
      *
@@ -134,7 +134,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return  static                      Instance with the specified uploaded files.
      * @throws  InvalidArgumentException    Invalid structure is provided.
      ************************************************************************/
-    public function withUploadedFiles(array $uploadedFiles): self;
+    public function withUploadedFiles(array $uploadedFiles): static;
     /** **********************************************************************
      * Retrieve normalized file upload data.
      *
@@ -176,7 +176,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return  static                      Instance with the specified body parameters.
      * @throws  InvalidArgumentException    Unsupported argument type is provided.
      ************************************************************************/
-    public function withParsedBody($data): self;
+    public function withParsedBody(null|array|object $data): static;
     /** **********************************************************************
      * Retrieve any parameters provided in the request body.
      *
@@ -192,7 +192,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return  null|array|object           The deserialized body parameters, if any.
      *                                      These will typically be an array or object.
      ************************************************************************/
-    public function getParsedBody();
+    public function getParsedBody(): null|array|object;
     /** **********************************************************************
      * Return an instance with the specified derived request attribute.
      *
@@ -211,7 +211,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return  static                      Instance with the specified derived
      *                                      request attribute.
      ************************************************************************/
-    public function withAttribute(string $name, $value): self;
+    public function withAttribute(string $name, mixed $value): static;
     /** **********************************************************************
      * Return an instance that removes the specified derived request attribute.
      *
@@ -229,7 +229,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return  static                      Instance that removes the specified
      *                                      derived request attribute.
      ************************************************************************/
-    public function withoutAttribute(string $name): self;
+    public function withoutAttribute(string $name): static;
     /** **********************************************************************
      * Retrieve a single derived request attribute.
      *
@@ -248,7 +248,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return  mixed                       Derived request attribute.
      ************************************************************************/
-    public function getAttribute(string $name, $default = null);
+    public function getAttribute(string $name, $default = null): mixed;
     /** **********************************************************************
      * Retrieve attributes derived from the request.
      *
