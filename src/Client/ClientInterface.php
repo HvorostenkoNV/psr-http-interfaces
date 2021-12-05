@@ -5,7 +5,7 @@ namespace Psr\Http\Client;
 
 use Psr\Http\{
     Message\ResponseInterface,
-    Message\RequestInterface
+    Message\RequestInterface,
 };
 /** ***********************************************************************************************
  * Client interface.

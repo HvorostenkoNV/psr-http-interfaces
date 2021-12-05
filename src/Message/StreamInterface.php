@@ -50,7 +50,7 @@ interface StreamInterface
      ************************************************************************/
     public function eof(): bool;
     /** **********************************************************************
-     * Returns whether or not the stream is seekable.
+     * Returns whether the stream is seekable.
      *
      * @return bool                         Stream is seekable.
      ************************************************************************/
@@ -87,7 +87,7 @@ interface StreamInterface
      ************************************************************************/
     public function rewind(): void;
     /** **********************************************************************
-     * Returns whether or not the stream is readable.
+     * Returns whether the stream is readable.
      *
      * @return bool                         Stream is readable.
      ************************************************************************/
@@ -106,7 +106,7 @@ interface StreamInterface
      ************************************************************************/
     public function read(int $length): string;
     /** **********************************************************************
-     * Returns whether or not the stream is writable.
+     * Returns whether the stream is writable.
      *
      * @return bool                         Stream is writable.
      ************************************************************************/

@@ -18,7 +18,7 @@ use InvalidArgumentException;
  * state of the current instance and return an instance that contains the
  * changed state.
  *
- * Typically the Host header will also be present in the request message.
+ * Typically, the Host header will also be present in the request message.
  * For server-side requests, the scheme will typically be discoverable in the
  * server parameters.
  *
@@ -72,7 +72,7 @@ interface UriInterface
      * user; an empty string for the user is equivalent to removing user
      * information.
      *
-     * @param   string  $user               User name to use for authority.
+     * @param   string  $user               Username to use for authority.
      * @param   string  $password           Password associated with $user.
      *
      * @return  static                      Instance with the specified user information.
@@ -256,9 +256,9 @@ interface UriInterface
      * any characters. To determine what characters to encode, please refer to
      * RFC 3986, Sections 2 and 3.4.
      *
-     * As an example, if a value in a key/value pair of the query string should
-     * include an ampersand ("&") not intended as a delimiter between values,
-     * that value MUST be passed in encoded form (e.g., "%26") to the instance.
+     * As an example, if a value in a key/value pair should include an ampersand ("&")
+     * not intended as a delimiter between values, that value MUST be passed
+     * in encoded form (e.g., "%26") to the instance.
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.4

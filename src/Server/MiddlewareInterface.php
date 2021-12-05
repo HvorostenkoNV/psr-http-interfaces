@@ -5,7 +5,7 @@ namespace Psr\Http\Server;
 
 use Psr\Http\{
     Message\ResponseInterface,
-    Message\ServerRequestInterface
+    Message\ServerRequestInterface,
 };
 /** ***********************************************************************************************
  * Participant in processing a server request and response.
@@ -31,9 +31,8 @@ interface MiddlewareInterface
      *
      * @return  ResponseInterface                   Response.
      ************************************************************************/
-    public function process
-    (
+    public function process(
         ServerRequestInterface  $request,
-        RequestHandlerInterface $handler
+        RequestHandlerInterface $handler,
     ): ResponseInterface;
 }

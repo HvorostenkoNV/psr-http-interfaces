@@ -121,7 +121,7 @@ interface MessageInterface
     /** **********************************************************************
      * Retrieves a comma-separated string of the values for a single header.
      *
-     * This method returns all of the header values of the given case-insensitive
+     * This method returns all header values of the given case-insensitive
      * header name as a string concatenated together using a comma.
      *
      * NOTE: Not all header values may be appropriately represented using

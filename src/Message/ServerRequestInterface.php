@@ -35,7 +35,7 @@ use InvalidArgumentException;
  * Additionally, this interface recognizes the utility of introspecting a
  * request to derive and match additional parameters (e.g., via URI path
  * matching, decrypting cookie values, deserializing non-form-encoded body
- * content, matching authorization headers to users, etc). These parameters
+ * content, matching authorization headers to users, etc.). These parameters
  * are stored in an "attributes" property.
  *
  * Requests are considered immutable; all methods that might change state MUST
@@ -104,7 +104,7 @@ interface ServerRequestInterface extends RequestInterface
      * updated query string arguments.
      *
      * @param   array $query                Array of query string arguments,
-     *                                      typically from $_GET.
+     *                                      typically, from $_GET.
      *
      * @return  static                      Instance with the specified query string arguments.
      ************************************************************************/
@@ -171,7 +171,7 @@ interface ServerRequestInterface extends RequestInterface
      * updated body parameters.
      *
      * @param   null|array|object $data     The deserialized body data. This will
-     *                                      typically be in an array or object.
+     *                                      typically, be in an array or object.
      *
      * @return  static                      Instance with the specified body parameters.
      * @throws  InvalidArgumentException    Unsupported argument type is provided.
@@ -248,7 +248,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return  mixed                       Derived request attribute.
      ************************************************************************/
-    public function getAttribute(string $name, $default = null): mixed;
+    public function getAttribute(string $name, mixed $default = null): mixed;
     /** **********************************************************************
      * Retrieve attributes derived from the request.
      *
@@ -258,7 +258,7 @@ interface ServerRequestInterface extends RequestInterface
      * deserializing non-form-encoded message bodies; etc. Attributes
      * will be application and request specific, and CAN be mutable.
      *
-     * @return  mixed[]                     Attributes derived from the request.
+     * @return  array                       Attributes derived from the request.
      ************************************************************************/
     public function getAttributes(): array;
 }
