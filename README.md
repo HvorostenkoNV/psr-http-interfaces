@@ -1,29 +1,29 @@
-#PSR interfaces pack
-###build and up all containers
+# PSR interfaces pack
+### build and up all containers
 ```
 cd docker
 docker-compose up -d
 ```
-###installation
-######go into PHP container
+### installation
+###### go into PHP container
 ```
 cd docker
 docker exec -it psr-http-interfaces-php sh
 ```
-######run composer
+###### run composer
 ```
 composer install
 ```
-###hotkeys
-######up all containers and get into php container
+### hotkeys
+###### up all containers and get into php container
 ```
 ./up.sh
 ```
-######down all containers
+###### down all containers
 ```
 ./down.sh
 ```
-###testing
+### testing
 ```
 curl 10.10.0.3/tests/index.php
 ```
