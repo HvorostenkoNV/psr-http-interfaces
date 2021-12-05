@@ -1,0 +1,36 @@
+version: '3'
+
+networks:
+  psr-http-interfaces:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.0.0/24
+          gateway: 10.10.0.1
+
+services:
+  php:
+    build: php
+    container_name: 'psr-http-interfaces-php'
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - "9000:9000"
+    working_dir: /var/www/html
+    networks:
+      psr-http-interfaces:
+        ipv4_address: 10.10.0.2
+  nginx:
+    image: nginx:stable-alpine
+    container_name: 'psr-http-interfaces-nginx'
+    volumes:
+      - ../:/var/www/html
+      - ./nginx/app.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+    working_dir: /var/www/html
+    networks:
+      psr-http-interfaces:
+        ipv4_address: 10.10.0.3
