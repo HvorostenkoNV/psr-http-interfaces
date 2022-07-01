@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Psr\Http\Message;
 
 use InvalidArgumentException;
-/** ***********************************************************************************************
+
+/**
  * Value object representing a URI.
  *
  * This interface is meant to represent URIs according to RFC 3986 and to
@@ -24,13 +25,36 @@ use InvalidArgumentException;
  * server parameters.
  *
  * @see http://tools.ietf.org/html/rfc3986 (the URI specification)
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface UriInterface
 {
-    /** **********************************************************************
+    /**
+     * Return the string representation as a URI reference.
+     *
+     * Depending on which components of the URI are present, the resulting
+     * string is either a full URI or relative reference according to RFC 3986,
+     * Section 4.1. The method concatenates the various components of the URI,
+     * using the appropriate delimiters:
+     *
+     * - If a scheme is present, it MUST be suffixed by ":".
+     * - If an authority is present, it MUST be prefixed by "//".
+     * - The path can be concatenated without delimiters. But there are two
+     *   cases where the path has to be adjusted to make the URI reference
+     *   valid as PHP does not allow to throw an exception in __toString():
+     *     - If the path is rootless and an authority is present, the path MUST
+     *       be prefixed by "/".
+     *     - If the path is starting with more than one "/" and no authority is
+     *       present, the starting slashes MUST be reduced to one.
+     * - If a query is present, it MUST be prefixed by "?".
+     * - If a fragment is present, it MUST be prefixed by "#".
+     *
+     * @see http://tools.ietf.org/html/rfc3986#section-4.1
+     *
+     * @return string string representation as a URI reference
+     */
+    public function __toString(): string;
+
+    /**
      * Return an instance with the specified scheme.
      *
      * This method MUST retain the state of the current instance, and return
@@ -41,13 +65,15 @@ interface UriInterface
      *
      * An empty scheme is equivalent to removing the scheme.
      *
-     * @param   string $scheme              Scheme to use with the new instance.
+     * @param string $scheme scheme to use with the new instance
      *
-     * @return  static                      Instance with the specified scheme.
-     * @throws  InvalidArgumentException    Invalid or unsupported schemes.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid or unsupported schemes
+     *
+     * @return static instance with the specified scheme
+     */
     public function withScheme(string $scheme): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the scheme component of the URI.
      *
      * If no scheme is present, this method MUST return an empty string.
@@ -58,12 +84,13 @@ interface UriInterface
      * The trailing ":" character is not part of the scheme and MUST NOT be
      * added.
      *
-     * @see     https://tools.ietf.org/html/rfc3986#section-3.1
+     * @see https://tools.ietf.org/html/rfc3986#section-3.1
      *
-     * @return  string                      URI scheme.
-     ************************************************************************/
+     * @return string URI scheme
+     */
     public function getScheme(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified user information.
      *
      * This method MUST retain the state of the current instance, and return
@@ -73,13 +100,14 @@ interface UriInterface
      * user; an empty string for the user is equivalent to removing user
      * information.
      *
-     * @param   string  $user               Username to use for authority.
-     * @param   string  $password           Password associated with $user.
+     * @param string $user     username to use for authority
+     * @param string $password password associated with $user
      *
-     * @return  static                      Instance with the specified user information.
-     ************************************************************************/
+     * @return static instance with the specified user information
+     */
     public function withUserInfo(string $user, string $password = ''): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the user information component of the URI.
      *
      * If no user information is present, this method MUST return an empty
@@ -92,10 +120,11 @@ interface UriInterface
      * The trailing "@" character is not part of the user information and MUST
      * NOT be added.
      *
-     * @return  string                      URI user information, in "username[:password]" format.
-     ************************************************************************/
+     * @return string URI user information, in "username[:password]" format
+     */
     public function getUserInfo(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified host.
      *
      * This method MUST retain the state of the current instance, and return
@@ -103,13 +132,15 @@ interface UriInterface
      *
      * An empty host value is equivalent to removing the host.
      *
-     * @param   string $host                Hostname to use with the new instance.
+     * @param string $host hostname to use with the new instance
      *
-     * @return  static                      Instance with the specified host.
-     * @throws  InvalidArgumentException    Invalid hostname.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid hostname
+     *
+     * @return static instance with the specified host
+     */
     public function withHost(string $host): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the host component of the URI.
      *
      * If no host is present, this method MUST return an empty string.
@@ -117,12 +148,13 @@ interface UriInterface
      * The value returned MUST be normalized to lowercase, per RFC 3986
      * Section 3.2.2.
      *
-     * @see     http://tools.ietf.org/html/rfc3986#section-3.2.2
+     * @see http://tools.ietf.org/html/rfc3986#section-3.2.2
      *
-     * @return  string                      URI host.
-     ************************************************************************/
+     * @return string URI host
+     */
     public function getHost(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified port.
      *
      * This method MUST retain the state of the current instance, and return
@@ -134,14 +166,16 @@ interface UriInterface
      * A null value provided for the port is equivalent to removing the port
      * information.
      *
-     * @param   int $port                   The port to use with the new instance;
-     *                                      a zero value removes the port information.
+     * @param int $port the port to use with the new instance;
+     *                  a zero value removes the port information
      *
-     * @return  static                      Instance with the specified port.
-     * @throws  InvalidArgumentException    Invalid ports.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid ports
+     *
+     * @return static instance with the specified port
+     */
     public function withPort(int $port = 0): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the port component of the URI.
      *
      * If a port is present, and it is non-standard for the current scheme,
@@ -154,10 +188,11 @@ interface UriInterface
      * If no port is present, but a scheme is present, this method MAY return
      * the standard port for that scheme, but SHOULD return null.
      *
-     * @return  null|int                    URI port.
-     ************************************************************************/
+     * @return null|int URI port
+     */
     public function getPort(): ?int;
-    /** **********************************************************************
+
+    /**
      * Retrieve the authority component of the URI.
      *
      * If no authority information is present, this method MUST return an empty
@@ -172,12 +207,13 @@ interface UriInterface
      * If the port component is not set or is the standard port for the current
      * scheme, it SHOULD NOT be included.
      *
-     * @see     https://tools.ietf.org/html/rfc3986#section-3.2
+     * @see https://tools.ietf.org/html/rfc3986#section-3.2
      *
-     * @return  string                      URI authority, in "[user-info@]host[:port]" format.
-     ************************************************************************/
+     * @return string URI authority, in "[user-info@]host[:port]" format
+     */
     public function getAuthority(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified path.
      *
      * This method MUST retain the state of the current instance, and return
@@ -195,13 +231,15 @@ interface UriInterface
      * Users can provide both encoded and decoded path characters.
      * Implementations ensure the correct encoding as outlined in getPath().
      *
-     * @param   string $path                Path to use with the new instance.
+     * @param string $path path to use with the new instance
      *
-     * @return  static                      Instance with the specified path.
-     * @throws  InvalidArgumentException    Invalid paths.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid paths
+     *
+     * @return static instance with the specified path
+     */
     public function withPath(string $path): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the path component of the URI.
      *
      * The path can either be empty or absolute (starting with a slash) or
@@ -222,13 +260,14 @@ interface UriInterface
      * delimiter between path segments, that value MUST be passed in encoded
      * form (e.g., "%2F") to the instance.
      *
-     * @see     https://tools.ietf.org/html/rfc3986#section-2
-     * @see     https://tools.ietf.org/html/rfc3986#section-3.3
+     * @see https://tools.ietf.org/html/rfc3986#section-2
+     * @see https://tools.ietf.org/html/rfc3986#section-3.3
      *
-     * @return  string                      URI path.
-     ************************************************************************/
+     * @return string URI path
+     */
     public function getPath(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified query string.
      *
      * This method MUST retain the state of the current instance, and return
@@ -239,13 +278,15 @@ interface UriInterface
      *
      * An empty query string value is equivalent to removing the query string.
      *
-     * @param   string $query               Query string to use with the new instance.
+     * @param string $query query string to use with the new instance
      *
-     * @return  static                      Instance with the specified query string.
-     * @throws  InvalidArgumentException    Invalid query strings.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid query strings
+     *
+     * @return static instance with the specified query string
+     */
     public function withQuery(string $query): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the query string of the URI.
      *
      * If no query string is present, this method MUST return an empty string.
@@ -261,13 +302,14 @@ interface UriInterface
      * not intended as a delimiter between values, that value MUST be passed
      * in encoded form (e.g., "%26") to the instance.
      *
-     * @see     https://tools.ietf.org/html/rfc3986#section-2
-     * @see     https://tools.ietf.org/html/rfc3986#section-3.4
+     * @see https://tools.ietf.org/html/rfc3986#section-2
+     * @see https://tools.ietf.org/html/rfc3986#section-3.4
      *
-     * @return  string                      URI query string.
-     ************************************************************************/
+     * @return string URI query string
+     */
     public function getQuery(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified URI fragment.
      *
      * This method MUST retain the state of the current instance, and return
@@ -278,12 +320,13 @@ interface UriInterface
      *
      * An empty fragment value is equivalent to removing the fragment.
      *
-     * @param   string $fragment            Fragment to use with the new instance.
+     * @param string $fragment fragment to use with the new instance
      *
-     * @return  static                      Instance with the specified URI fragment.
-     ************************************************************************/
+     * @return static instance with the specified URI fragment
+     */
     public function withFragment(string $fragment): static;
-    /** **********************************************************************
+
+    /**
      * Retrieve the fragment component of the URI.
      *
      * If no fragment is present, this method MUST return an empty string.
@@ -295,35 +338,10 @@ interface UriInterface
      * any characters. To determine what characters to encode, please refer to
      * RFC 3986, Sections 2 and 3.5.
      *
-     * @see     https://tools.ietf.org/html/rfc3986#section-2
-     * @see     https://tools.ietf.org/html/rfc3986#section-3.5
+     * @see https://tools.ietf.org/html/rfc3986#section-2
+     * @see https://tools.ietf.org/html/rfc3986#section-3.5
      *
-     * @return  string                      URI fragment.
-     ************************************************************************/
+     * @return string URI fragment
+     */
     public function getFragment(): string;
-    /** **********************************************************************
-     * Return the string representation as a URI reference.
-     *
-     * Depending on which components of the URI are present, the resulting
-     * string is either a full URI or relative reference according to RFC 3986,
-     * Section 4.1. The method concatenates the various components of the URI,
-     * using the appropriate delimiters:
-     *
-     * - If a scheme is present, it MUST be suffixed by ":".
-     * - If an authority is present, it MUST be prefixed by "//".
-     * - The path can be concatenated without delimiters. But there are two
-     *   cases where the path has to be adjusted to make the URI reference
-     *   valid as PHP does not allow to throw an exception in __toString():
-     *     - If the path is rootless and an authority is present, the path MUST
-     *       be prefixed by "/".
-     *     - If the path is starting with more than one "/" and no authority is
-     *       present, the starting slashes MUST be reduced to one.
-     * - If a query is present, it MUST be prefixed by "?".
-     * - If a fragment is present, it MUST be prefixed by "#".
-     *
-     * @see     http://tools.ietf.org/html/rfc3986#section-4.1
-     *
-     * @return  string                      String representation as a URI reference.
-     ************************************************************************/
-    public function __toString(): string;
 }

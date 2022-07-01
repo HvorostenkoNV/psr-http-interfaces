@@ -6,20 +6,18 @@ namespace Psr\Http\Message;
 
 use InvalidArgumentException;
 use RuntimeException;
-/** ***********************************************************************************************
+
+/**
  * Value object representing a file uploaded through an HTTP request.
  *
  * Instances of this interface are considered immutable; all methods that
  * might change state MUST be implemented such that they retain the internal
  * state of the current instance and return an instance that contains the
  * changed state.
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface UploadedFileInterface
 {
-    /** **********************************************************************
+    /**
      * Retrieve a stream representing the uploaded file.
      *
      * This method MUST return a StreamInterface instance, representing the
@@ -31,11 +29,13 @@ interface UploadedFileInterface
      * If the moveTo() method has been called previously, this method MUST raise
      * an exception.
      *
-     * @return  StreamInterface             Stream representation of the uploaded file.
-     * @throws  RuntimeException            No stream is available or no stream can be created.
-     ************************************************************************/
+     * @throws RuntimeException no stream is available or no stream can be created
+     *
+     * @return StreamInterface stream representation of the uploaded file
+     */
     public function getStream(): StreamInterface;
-    /** **********************************************************************
+
+    /**
      * Move the uploaded file to a new location.
      *
      * Use this method as an alternative to move_uploaded_file(). This method is
@@ -60,28 +60,29 @@ interface UploadedFileInterface
      * If you wish to move to a stream, use getStream(), as SAPI operations
      * cannot guarantee writing to stream destinations.
      *
-     * @see     http://php.net/is_uploaded_file
-     * @see     http://php.net/move_uploaded_file
+     * @see http://php.net/is_uploaded_file
+     * @see http://php.net/move_uploaded_file
      *
-     * @param   string $targetPath          Path to which to move the uploaded file.
+     * @param string $targetPath path to which to move the uploaded file
      *
-     * @return  void
-     * @throws  InvalidArgumentException    $targetPath specified is invalid.
-     * @throws  RuntimeException            On any error during the move operation or
-     *                                      on the second or subsequent call to the method.
-     ************************************************************************/
+     * @throws InvalidArgumentException $targetPath specified is invalid
+     * @throws RuntimeException         on any error during the move operation or
+     *                                  on the second or subsequent call to the method
+     */
     public function moveTo(string $targetPath): void;
-    /** **********************************************************************
+
+    /**
      * Retrieve the file size.
      *
      * Implementations SHOULD return the value stored in the "size" key of
      * the file in the $_FILES array if available, as PHP calculates this based
      * on the actual size transmitted.
      *
-     * @return  int|null                    File size in bytes or null if unknown.
-     ************************************************************************/
+     * @return null|int file size in bytes or null if unknown
+     */
     public function getSize(): ?int;
-    /** **********************************************************************
+
+    /**
      * Retrieve the error associated with the uploaded file.
      *
      * The return value MUST be one of PHP UPLOAD_ERR_XXX constants.
@@ -92,12 +93,13 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "error" key of
      * the file in the $_FILES array.
      *
-     * @see     http://php.net/manual/en/features.file-upload.errors.php
+     * @see http://php.net/manual/en/features.file-upload.errors.php
      *
-     * @return  int                         One of PHP UPLOAD_ERR_XXX constants.
-     ************************************************************************/
+     * @return int one of PHP UPLOAD_ERR_XXX constants
+     */
     public function getError(): int;
-    /** **********************************************************************
+
+    /**
      * Retrieve the filename sent by the client.
      *
      * Do not trust the value returned by this method. A client could send
@@ -107,11 +109,12 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "name" key of
      * the file in the $_FILES array.
      *
-     * @return  string|null                 Filename sent by the client or null
-     *                                      if none was provided.
-     ************************************************************************/
+     * @return null|string filename sent by the client or null
+     *                     if none was provided
+     */
     public function getClientFilename(): ?string;
-    /** **********************************************************************
+
+    /**
      * Retrieve the media type sent by the client.
      *
      * Do not trust the value returned by this method. A client could send
@@ -121,8 +124,8 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "type" key of
      * the file in the $_FILES array.
      *
-     * @return  string|null                 Media type sent by the client or null
-     *                                      if none was provided.
-     ************************************************************************/
+     * @return null|string media type sent by the client or null
+     *                     if none was provided
+     */
     public function getClientMediaType(): ?string;
 }

@@ -5,24 +5,23 @@ declare(strict_types=1);
 namespace Psr\Http\Client;
 
 use Psr\Http\{
-    Message\ResponseInterface,
     Message\RequestInterface,
+    Message\ResponseInterface,
 };
-/** ***********************************************************************************************
+
+/**
  * Client interface.
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface ClientInterface
 {
-    /** **********************************************************************
+    /**
      * Sends a PSR-7 request and returns a PSR-7 response.
      *
-     * @param   RequestInterface $request   Request.
+     * @param RequestInterface $request request
      *
-     * @return  ResponseInterface           Response.
-     * @throws  ClientExceptionInterface    Error happens while processing the request.
-     ************************************************************************/
+     * @throws ClientExceptionInterface error happens while processing the request
+     *
+     * @return ResponseInterface response
+     */
     public function sendRequest(RequestInterface $request): ResponseInterface;
 }

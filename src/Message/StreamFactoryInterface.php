@@ -4,26 +4,25 @@ declare(strict_types=1);
 
 namespace Psr\Http\Message;
 
-use RuntimeException;
 use InvalidArgumentException;
-/** ***********************************************************************************************
+use RuntimeException;
+
+/**
  * Stream factory interface.
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface StreamFactoryInterface
 {
-    /** **********************************************************************
+    /**
      * Create a new stream from a string.
      * The stream SHOULD be created with a temporary resource.
      *
-     * @param   string $content             String content with which to populate the stream.
+     * @param string $content string content with which to populate the stream
      *
-     * @return  StreamInterface             New stream.
-     ************************************************************************/
+     * @return StreamInterface new stream
+     */
     public function createStream(string $content = ''): StreamInterface;
-    /** **********************************************************************
+
+    /**
      * Create a stream from an existing file.
      *
      * The file MUST be opened using the given mode, which may be any mode
@@ -31,24 +30,26 @@ interface StreamFactoryInterface
      *
      * The `$filename` MAY be any string supported by `fopen()`.
      *
-     * @param   string  $filename           The filename or stream URI to use
-     *                                      as basis of stream.
-     * @param   string  $mode               The mode with which to open
-     *                                      the underlying filename/stream.
+     * @param string $filename the filename or stream URI to use
+     *                         as basis of stream
+     * @param string $mode     the mode with which to open
+     *                         the underlying filename/stream
      *
-     * @return  StreamInterface             Stream.
-     * @throws  RuntimeException            File cannot be opened.
-     * @throws  InvalidArgumentException    Mode is invalid.
-     ************************************************************************/
+     * @throws RuntimeException         file cannot be opened
+     * @throws InvalidArgumentException mode is invalid
+     *
+     * @return StreamInterface stream
+     */
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface;
-    /** **********************************************************************
+
+    /**
      * Create a new stream from an existing resource.
      * The stream MUST be readable and may be writable.
      *
-     * @param   resource $resource          The PHP resource to use as
-     *                                      the basis for the stream.
+     * @param resource $resource the PHP resource to use as
+     *                           the basis for the stream
      *
-     * @return  StreamInterface             Stream.
-     ************************************************************************/
+     * @return StreamInterface stream
+     */
     public function createStreamFromResource($resource): StreamInterface;
 }

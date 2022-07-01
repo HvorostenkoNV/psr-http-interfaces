@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Psr\Http\Message;
 
 use InvalidArgumentException;
-/** ***********************************************************************************************
+
+/**
  * HTTP messages consist of requests from a client to a server and responses
  * from a server to a client. This interface defines the methods common to each.
  *
@@ -15,32 +16,31 @@ use InvalidArgumentException;
  *
  * @see http://www.ietf.org/rfc/rfc7230.txt
  * @see http://www.ietf.org/rfc/rfc7231.txt
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface MessageInterface
 {
-    /** **********************************************************************
+    /**
      * Return an instance with the specified HTTP protocol version.
      * The version string MUST contain only the HTTP version number (e.g., "1.1", "1.0").
      *
      * This method MUST be implemented in such a way as to retain the immutability
      * of the message, and MUST return an instance that has the new protocol version.
      *
-     * @param   string $version             HTTP protocol version.
+     * @param string $version HTTP protocol version
      *
-     * @return  static                      Instance with the specified HTTP protocol version.
-     ************************************************************************/
+     * @return static instance with the specified HTTP protocol version
+     */
     public function withProtocolVersion(string $version): static;
-    /** **********************************************************************
+
+    /**
      * Retrieves the HTTP protocol version as a string.
      * The string MUST contain only the HTTP version number (e.g., "1.1", "1.0").
      *
-     * @return  string                      HTTP protocol version.
-     ************************************************************************/
+     * @return string HTTP protocol version
+     */
     public function getProtocolVersion(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the provided value replacing the specified header.
      *
      * While header names are case-insensitive, the casing of the header will
@@ -50,15 +50,17 @@ interface MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * new and/or updated header and value.
      *
-     * @param   string          $name       Case-insensitive header field name.
-     * @param   string|string[] $value      Header value(s).
+     * @param string          $name  case-insensitive header field name
+     * @param string|string[] $value header value(s)
      *
-     * @return  static                      Instance with the provided value
-     *                                      replacing the specified header.
-     * @throws  InvalidArgumentException    Invalid header names or values.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid header names or values
+     *
+     * @return static instance with the provided value
+     *                replacing the specified header
+     */
     public function withHeader(string $name, string|array $value): static;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified header appended with the given value.
      *
      * Existing values for the specified header will be maintained. The new
@@ -69,15 +71,17 @@ interface MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * new header and/or value.
      *
-     * @param   string          $name       Case-insensitive header field name to add.
-     * @param   string|string[] $value      Header value(s).
+     * @param string          $name  case-insensitive header field name to add
+     * @param string|string[] $value header value(s)
      *
-     * @return  static                      Instance with the specified header
-     *                                      appended with the given value.
-     * @throws  InvalidArgumentException    Invalid header names or values.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid header names or values
+     *
+     * @return static instance with the specified header
+     *                appended with the given value
+     */
     public function withAddedHeader(string $name, string|array $value): static;
-    /** **********************************************************************
+
+    /**
      * Return an instance without the specified header.
      *
      * Header resolution MUST be done without case-sensitivity.
@@ -86,23 +90,25 @@ interface MessageInterface
      * immutability of the message, and MUST return an instance that removes
      * the named header.
      *
-     * @param   string $name                Case-insensitive header field name to remove.
+     * @param string $name case-insensitive header field name to remove
      *
-     * @return  static                      Instance without the specified header.
-     ************************************************************************/
+     * @return static instance without the specified header
+     */
     public function withoutHeader(string $name): static;
-    /** **********************************************************************
+
+    /**
      * Checks if a header exists by the given case-insensitive name.
      *
-     * @param   string $name                Case-insensitive header field name.
+     * @param string $name case-insensitive header field name
      *
-     * @return  bool                        Any header names match the given header
-     *                                      name using a case-insensitive string
-     *                                      comparison. Returns false if no matching
-     *                                      header name is found in the message.
-     ************************************************************************/
+     * @return bool Any header names match the given header
+     *              name using a case-insensitive string
+     *              comparison. Returns false if no matching
+     *              header name is found in the message.
+     */
     public function hasHeader(string $name): bool;
-    /** **********************************************************************
+
+    /**
      * Retrieves a message header value by the given case-insensitive name.
      *
      * This method returns an array of all the header values of the given
@@ -111,15 +117,16 @@ interface MessageInterface
      * If the header does not appear in the message, this method MUST return
      * an empty array.
      *
-     * @param   string $name                Case-insensitive header field name.
+     * @param string $name case-insensitive header field name
      *
-     * @return  string[]                    Array of string values as provided
-     *                                      for the given header. If the header
-     *                                      does not appear in the message,
-     *                                      this method MUST return an empty array.
-     ************************************************************************/
+     * @return string[] Array of string values as provided
+     *                  for the given header. If the header
+     *                  does not appear in the message,
+     *                  this method MUST return an empty array.
+     */
     public function getHeader(string $name): array;
-    /** **********************************************************************
+
+    /**
      * Retrieves a comma-separated string of the values for a single header.
      *
      * This method returns all header values of the given case-insensitive
@@ -132,16 +139,17 @@ interface MessageInterface
      * If the header does not appear in the message, this method MUST return
      * an empty string.
      *
-     * @param   string $name                Case-insensitive header field name.
+     * @param string $name case-insensitive header field name
      *
-     * @return  string                      String of values as provided for
-     *                                      the given header concatenated together
-     *                                      using a comma. If the header does not
-     *                                      appear in the message, this method MUST
-     *                                      return an empty string.
-     ************************************************************************/
+     * @return string String of values as provided for
+     *                the given header concatenated together
+     *                using a comma. If the header does not
+     *                appear in the message, this method MUST
+     *                return an empty string.
+     */
     public function getHeaderLine(string $name): string;
-    /** **********************************************************************
+
+    /**
      * Retrieves all message header values.
      *
      * The keys represent the header name as it will be sent over the wire, and
@@ -162,13 +170,14 @@ interface MessageInterface
      * While header names are not case-sensitive, getHeaders() will preserve the
      * exact case in which headers were originally specified.
      *
-     * @return  string[][]                  Associative array of the message's headers.
-     *                                      Each key MUST be a header name, each
-     *                                      value MUST be an array of strings
-     *                                      for that header.
-     ************************************************************************/
+     * @return string[][] Associative array of the message's headers.
+     *                    Each key MUST be a header name, each
+     *                    value MUST be an array of strings
+     *                    for that header.
+     */
     public function getHeaders(): array;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the specified message body.
      *
      * The body MUST be a StreamInterface object.
@@ -177,16 +186,18 @@ interface MessageInterface
      * immutability of the message, and MUST return a new instance that has the
      * new body stream.
      *
-     * @param   StreamInterface $body       Body.
+     * @param StreamInterface $body body
      *
-     * @return  static                      Instance with the specified message body.
-     * @throws  InvalidArgumentException    Body is not valid.
-     ************************************************************************/
+     * @throws InvalidArgumentException body is not valid
+     *
+     * @return static instance with the specified message body
+     */
     public function withBody(StreamInterface $body): static;
-    /** **********************************************************************
+
+    /**
      * Gets the body of the message.
      *
-     * @return  StreamInterface             Body as a stream.
-     ************************************************************************/
+     * @return StreamInterface body as a stream
+     */
     public function getBody(): StreamInterface;
 }

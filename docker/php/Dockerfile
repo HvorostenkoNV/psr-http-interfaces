@@ -1,4 +1,21 @@
-FROM php:8.0-fpm-alpine
+FROM php:8.1-fpm-alpine
 
-RUN apk update && \
-    apk add composer \
+RUN apk update
+# composer install
+ENV COMPOSER_HOME /composer
+ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+# SSH install
+ARG USER=root
+ARG PASSWORD=root
+
+RUN apk add openssh && \
+    sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config && \
+    echo "${USER}:${PASSWORD}" | chpasswd && \
+    ssh-keygen -A
+# RUN php and SSH
+RUN printf "php-fpm -D\n/usr/sbin/sshd -D" >> /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]

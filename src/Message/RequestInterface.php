@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Psr\Http\Message;
 
 use InvalidArgumentException;
-/** ***********************************************************************************************
+
+/**
  * Representation of an outgoing, client-side request.
  *
  * Per the HTTP specification, this interface includes properties for
@@ -23,13 +24,10 @@ use InvalidArgumentException;
  * Requests are considered immutable; all methods that might change state MUST
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
- *
- * @package HNV\Psr\Http\Interfaces
- * @author  Hvorostenko
- *************************************************************************************************/
+ */
 interface RequestInterface extends MessageInterface
 {
-    /** **********************************************************************
+    /**
      * Return an instance with the specific request-target.
      *
      * If the request needs a non-origin-form request-target — e.g., for
@@ -41,14 +39,15 @@ interface RequestInterface extends MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * changed request target.
      *
-     * @see     http://tools.ietf.org/html/rfc7230#section-5.3
+     * @see http://tools.ietf.org/html/rfc7230#section-5.3
      *
-     * @param   string $requestTarget           Request target.
+     * @param string $requestTarget request target
      *
-     * @return  static                          Instance with the specific request-target.
-     ************************************************************************/
+     * @return static instance with the specific request-target
+     */
     public function withRequestTarget(string $requestTarget): static;
-    /** **********************************************************************
+
+    /**
      * Retrieves the message's request target.
      *
      * Retrieves the message's request-target either as it will appear (for
@@ -62,10 +61,11 @@ interface RequestInterface extends MessageInterface
      * If no URI is available, and no request-target has been specifically
      * provided, this method MUST return the string "/".
      *
-     * @return  string                          Request target.
-     ************************************************************************/
+     * @return string request target
+     */
     public function getRequestTarget(): string;
-    /** **********************************************************************
+
+    /**
      * Return an instance with the provided HTTP method.
      *
      * While HTTP method names are typically all uppercase characters, HTTP
@@ -76,19 +76,22 @@ interface RequestInterface extends MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * changed request method.
      *
-     * @param   string $method                  Case-sensitive method.
+     * @param string $method case-sensitive method
      *
-     * @return  static                          Instance with the provided HTTP method.
-     * @throws  InvalidArgumentException        Invalid HTTP methods.
-     ************************************************************************/
+     * @throws InvalidArgumentException invalid HTTP methods
+     *
+     * @return static instance with the provided HTTP method
+     */
     public function withMethod(string $method): static;
-    /** **********************************************************************
+
+    /**
      * Retrieves the HTTP method of the request.
      *
-     * @return string                           Request method.
-     ************************************************************************/
+     * @return string request method
+     */
     public function getMethod(): string;
-    /** **********************************************************************
+
+    /**
      * Returns an instance with the provided URI.
      *
      * This method MUST update the Host header of the returned request by
@@ -113,22 +116,23 @@ interface RequestInterface extends MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * new UriInterface instance.
      *
-     * @see     http://tools.ietf.org/html/rfc3986#section-4.3
+     * @see http://tools.ietf.org/html/rfc3986#section-4.3
      *
-     * @param   UriInterface    $uri            New request URI to use.
-     * @param   bool            $preserveHost   Preserve the original state of the Host header.
+     * @param UriInterface $uri          new request URI to use
+     * @param bool         $preserveHost preserve the original state of the Host header
      *
-     * @return  static                          Instance with the provided URI.
-     ************************************************************************/
+     * @return static instance with the provided URI
+     */
     public function withUri(UriInterface $uri, bool $preserveHost = false): static;
-    /** **********************************************************************
+
+    /**
      * Retrieves the URI instance.
      *
      * This method MUST return a UriInterface instance.
      *
-     * @see     http://tools.ietf.org/html/rfc3986#section-4.3
+     * @see http://tools.ietf.org/html/rfc3986#section-4.3
      *
-     * @return  UriInterface                    URI of the request.
-     ************************************************************************/
+     * @return UriInterface URI of the request
+     */
     public function getUri(): UriInterface;
 }
