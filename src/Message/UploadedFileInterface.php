@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -59,8 +60,8 @@ interface UploadedFileInterface
      * If you wish to move to a stream, use getStream(), as SAPI operations
      * cannot guarantee writing to stream destinations.
      *
-     * @see http://php.net/is_uploaded_file
-     * @see http://php.net/move_uploaded_file
+     * @see     http://php.net/is_uploaded_file
+     * @see     http://php.net/move_uploaded_file
      *
      * @param   string $targetPath          Path to which to move the uploaded file.
      *
@@ -77,7 +78,7 @@ interface UploadedFileInterface
      * the file in the $_FILES array if available, as PHP calculates this based
      * on the actual size transmitted.
      *
-     * @return int|null                     File size in bytes or null if unknown.
+     * @return  int|null                    File size in bytes or null if unknown.
      ************************************************************************/
     public function getSize(): ?int;
     /** **********************************************************************
@@ -91,9 +92,9 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "error" key of
      * the file in the $_FILES array.
      *
-     * @see http://php.net/manual/en/features.file-upload.errors.php
+     * @see     http://php.net/manual/en/features.file-upload.errors.php
      *
-     * @return int                          One of PHP UPLOAD_ERR_XXX constants.
+     * @return  int                         One of PHP UPLOAD_ERR_XXX constants.
      ************************************************************************/
     public function getError(): int;
     /** **********************************************************************
@@ -106,7 +107,7 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "name" key of
      * the file in the $_FILES array.
      *
-     * @return string|null                  Filename sent by the client or null
+     * @return  string|null                 Filename sent by the client or null
      *                                      if none was provided.
      ************************************************************************/
     public function getClientFilename(): ?string;
@@ -120,7 +121,7 @@ interface UploadedFileInterface
      * Implementations SHOULD return the value stored in the "type" key of
      * the file in the $_FILES array.
      *
-     * @return string|null                  Media type sent by the client or null
+     * @return  string|null                 Media type sent by the client or null
      *                                      if none was provided.
      ************************************************************************/
     public function getClientMediaType(): ?string;

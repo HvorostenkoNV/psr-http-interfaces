@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -19,7 +20,7 @@ interface StreamInterface
     /** **********************************************************************
      * Closes the stream and any underlying resources.
      *
-     * @return void
+     * @return  void
      ************************************************************************/
     public function close(): void;
     /** **********************************************************************
@@ -27,13 +28,13 @@ interface StreamInterface
      *
      * After the stream has been detached, the stream is in an unusable state.
      *
-     * @return resource|null                Underlying PHP stream, if any.
+     * @return  resource|null               Underlying PHP stream, if any.
      ************************************************************************/
     public function detach();
     /** **********************************************************************
      * Get the size of the stream if known.
      *
-     * @return int|null                     Size in bytes if known, or null if unknown.
+     * @return  int|null                    Size in bytes if known, or null if unknown.
      ************************************************************************/
     public function getSize(): ?int;
     /** **********************************************************************
@@ -46,19 +47,19 @@ interface StreamInterface
     /** **********************************************************************
      * Returns true if the stream is at the end of the stream.
      *
-     * @return bool                         Stream is at the end of the stream.
+     * @return  bool                        Stream is at the end of the stream.
      ************************************************************************/
     public function eof(): bool;
     /** **********************************************************************
      * Returns whether the stream is seekable.
      *
-     * @return bool                         Stream is seekable.
+     * @return  bool                        Stream is seekable.
      ************************************************************************/
     public function isSeekable(): bool;
     /** **********************************************************************
      * Seek to a position in the stream.
      *
-     * @see http://www.php.net/manual/en/function.fseek.php
+     * @see     http://www.php.net/manual/en/function.fseek.php
      *
      * @param   int $offset                 Stream offset.
      * @param   int $whence                 Specifies how the cursor position
@@ -79,8 +80,8 @@ interface StreamInterface
      * If the stream is not seekable, this method will raise an exception;
      * otherwise, it will perform a seek(0).
      *
-     * @see seek()
-     * @see http://www.php.net/manual/en/function.fseek.php
+     * @see     seek()
+     * @see     http://www.php.net/manual/en/function.fseek.php
      *
      * @return  void
      * @throws  RuntimeException            Failure.
@@ -89,7 +90,7 @@ interface StreamInterface
     /** **********************************************************************
      * Returns whether the stream is readable.
      *
-     * @return bool                         Stream is readable.
+     * @return  bool                        Stream is readable.
      ************************************************************************/
     public function isReadable(): bool;
     /** **********************************************************************
@@ -108,7 +109,7 @@ interface StreamInterface
     /** **********************************************************************
      * Returns whether the stream is writable.
      *
-     * @return bool                         Stream is writable.
+     * @return  bool                        Stream is writable.
      ************************************************************************/
     public function isWritable(): bool;
     /** **********************************************************************
@@ -133,7 +134,7 @@ interface StreamInterface
      * The keys returned are identical to the keys returned from PHP
      * stream_get_meta_data() function.
      *
-     * @see http://php.net/manual/en/function.stream-get-meta-data.php
+     * @see     http://php.net/manual/en/function.stream-get-meta-data.php
      *
      * @param   string $key                 Specific metadata to retrieve.
      *
@@ -154,7 +155,7 @@ interface StreamInterface
      * This method MUST NOT raise an exception in order to conform with PHP
      * string casting operations.
      *
-     * @see http://php.net/manual/en/language.oop5.magic.php#object.tostring
+     * @see     http://php.net/manual/en/language.oop5.magic.php#object.tostring
      *
      * @return  string                      All data from the stream.
      ************************************************************************/

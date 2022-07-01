@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -20,8 +21,8 @@ interface UploadedFileFactoryInterface
      * If a size is not provided it will be determined by checking the size of
      * the stream.
      *
-     * @see http://php.net/manual/features.file-upload.post-method.php
-     * @see http://php.net/manual/features.file-upload.errors.php
+     * @see     http://php.net/manual/features.file-upload.post-method.php
+     * @see     http://php.net/manual/features.file-upload.errors.php
      *
      * @param   StreamInterface $stream             The underlying stream representing
      *                                              the uploaded file content.

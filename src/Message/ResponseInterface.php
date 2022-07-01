@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -44,8 +45,8 @@ interface ResponseInterface extends MessageInterface
      * immutability of the message, and MUST return an instance that has the
      * updated status and reason phrase.
      *
-     * @see http://tools.ietf.org/html/rfc7231#section-6
-     * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+     * @see     http://tools.ietf.org/html/rfc7231#section-6
+     * @see     http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
      *
      * @param   int     $code               3-digit integer result code to set.
      * @param   string  $reasonPhrase       The reason phrase to use with the
@@ -67,10 +68,10 @@ interface ResponseInterface extends MessageInterface
      * listed in the IANA HTTP Status Code Registry) for the response's
      * status code.
      *
-     * @see http://tools.ietf.org/html/rfc7231#section-6
-     * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+     * @see     http://tools.ietf.org/html/rfc7231#section-6
+     * @see     http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
      *
-     * @return string                       Reason phrase; must return an empty
+     * @return  string                      Reason phrase; must return an empty
      *                                      string if none present.
      ************************************************************************/
     public function getReasonPhrase(): string;

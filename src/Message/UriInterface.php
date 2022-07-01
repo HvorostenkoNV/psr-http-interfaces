@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -57,7 +58,7 @@ interface UriInterface
      * The trailing ":" character is not part of the scheme and MUST NOT be
      * added.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-3.1
+     * @see     https://tools.ietf.org/html/rfc3986#section-3.1
      *
      * @return  string                      URI scheme.
      ************************************************************************/
@@ -116,7 +117,7 @@ interface UriInterface
      * The value returned MUST be normalized to lowercase, per RFC 3986
      * Section 3.2.2.
      *
-     * @see http://tools.ietf.org/html/rfc3986#section-3.2.2
+     * @see     http://tools.ietf.org/html/rfc3986#section-3.2.2
      *
      * @return  string                      URI host.
      ************************************************************************/
@@ -171,7 +172,7 @@ interface UriInterface
      * If the port component is not set or is the standard port for the current
      * scheme, it SHOULD NOT be included.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-3.2
+     * @see     https://tools.ietf.org/html/rfc3986#section-3.2
      *
      * @return  string                      URI authority, in "[user-info@]host[:port]" format.
      ************************************************************************/
@@ -221,8 +222,8 @@ interface UriInterface
      * delimiter between path segments, that value MUST be passed in encoded
      * form (e.g., "%2F") to the instance.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.3
+     * @see     https://tools.ietf.org/html/rfc3986#section-2
+     * @see     https://tools.ietf.org/html/rfc3986#section-3.3
      *
      * @return  string                      URI path.
      ************************************************************************/
@@ -260,8 +261,8 @@ interface UriInterface
      * not intended as a delimiter between values, that value MUST be passed
      * in encoded form (e.g., "%26") to the instance.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.4
+     * @see     https://tools.ietf.org/html/rfc3986#section-2
+     * @see     https://tools.ietf.org/html/rfc3986#section-3.4
      *
      * @return  string                      URI query string.
      ************************************************************************/
@@ -294,8 +295,8 @@ interface UriInterface
      * any characters. To determine what characters to encode, please refer to
      * RFC 3986, Sections 2 and 3.5.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.5
+     * @see     https://tools.ietf.org/html/rfc3986#section-2
+     * @see     https://tools.ietf.org/html/rfc3986#section-3.5
      *
      * @return  string                      URI fragment.
      ************************************************************************/
@@ -320,7 +321,7 @@ interface UriInterface
      * - If a query is present, it MUST be prefixed by "?".
      * - If a fragment is present, it MUST be prefixed by "#".
      *
-     * @see http://tools.ietf.org/html/rfc3986#section-4.1
+     * @see     http://tools.ietf.org/html/rfc3986#section-4.1
      *
      * @return  string                      String representation as a URI reference.
      ************************************************************************/

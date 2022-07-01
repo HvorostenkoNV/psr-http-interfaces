@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Message;
@@ -61,7 +62,7 @@ interface RequestInterface extends MessageInterface
      * If no URI is available, and no request-target has been specifically
      * provided, this method MUST return the string "/".
      *
-     * @return string                           Request target.
+     * @return  string                          Request target.
      ************************************************************************/
     public function getRequestTarget(): string;
     /** **********************************************************************

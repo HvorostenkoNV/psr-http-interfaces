@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Psr\Http\Client;
@@ -22,7 +23,7 @@ interface RequestExceptionInterface extends ClientExceptionInterface
      * The request object MAY be a different object from the one
      * passed to ClientInterface::sendRequest().
      *
-     * @return RequestInterface             Request.
+     * @return  RequestInterface            Request.
      ************************************************************************/
     public function getRequest(): RequestInterface;
 }
