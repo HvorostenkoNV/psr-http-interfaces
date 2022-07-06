@@ -32,8 +32,6 @@ interface UploadedFileFactoryInterface
      *                                         the client, if any
      *
      * @throws InvalidArgumentException file resource is not readable
-     *
-     * @return UploadedFileInterface uploaded file
      */
     public function createUploadedFile(
         StreamInterface $stream,

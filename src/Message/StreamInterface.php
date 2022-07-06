@@ -27,8 +27,6 @@ interface StreamInterface
      * string casting operations.
      *
      * @see http://php.net/manual/en/language.oop5.magic.php#object.tostring
-     *
-     * @return string all data from the stream
      */
     public function __toString(): string;
 
@@ -64,15 +62,11 @@ interface StreamInterface
 
     /**
      * Returns true if the stream is at the end of the stream.
-     *
-     * @return bool stream is at the end of the stream
      */
     public function eof(): bool;
 
     /**
      * Returns whether the stream is seekable.
-     *
-     * @return bool stream is seekable
      */
     public function isSeekable(): bool;
 
@@ -109,8 +103,6 @@ interface StreamInterface
 
     /**
      * Returns whether the stream is readable.
-     *
-     * @return bool stream is readable
      */
     public function isReadable(): bool;
 
@@ -131,15 +123,11 @@ interface StreamInterface
 
     /**
      * Returns whether the stream is writable.
-     *
-     * @return bool stream is writable
      */
     public function isWritable(): bool;
 
     /**
      * Write data to the stream.
-     *
-     * @param string $string string that is to be written
      *
      * @throws RuntimeException failure
      *
@@ -151,8 +139,6 @@ interface StreamInterface
      * Returns the remaining contents in a string.
      *
      * @throws RuntimeException unable to read or occurs while reading
-     *
-     * @return string remaining contents
      */
     public function getContents(): string;
 

@@ -65,11 +65,7 @@ interface UriInterface
      *
      * An empty scheme is equivalent to removing the scheme.
      *
-     * @param string $scheme scheme to use with the new instance
-     *
      * @throws InvalidArgumentException invalid or unsupported schemes
-     *
-     * @return static instance with the specified scheme
      */
     public function withScheme(string $scheme): static;
 
@@ -85,8 +81,6 @@ interface UriInterface
      * added.
      *
      * @see https://tools.ietf.org/html/rfc3986#section-3.1
-     *
-     * @return string URI scheme
      */
     public function getScheme(): string;
 
@@ -102,8 +96,6 @@ interface UriInterface
      *
      * @param string $user     username to use for authority
      * @param string $password password associated with $user
-     *
-     * @return static instance with the specified user information
      */
     public function withUserInfo(string $user, string $password = ''): static;
 
@@ -132,11 +124,7 @@ interface UriInterface
      *
      * An empty host value is equivalent to removing the host.
      *
-     * @param string $host hostname to use with the new instance
-     *
      * @throws InvalidArgumentException invalid hostname
-     *
-     * @return static instance with the specified host
      */
     public function withHost(string $host): static;
 
@@ -149,8 +137,6 @@ interface UriInterface
      * Section 3.2.2.
      *
      * @see http://tools.ietf.org/html/rfc3986#section-3.2.2
-     *
-     * @return string URI host
      */
     public function getHost(): string;
 
@@ -170,8 +156,6 @@ interface UriInterface
      *                  a zero value removes the port information
      *
      * @throws InvalidArgumentException invalid ports
-     *
-     * @return static instance with the specified port
      */
     public function withPort(int $port = 0): static;
 
@@ -234,8 +218,6 @@ interface UriInterface
      * @param string $path path to use with the new instance
      *
      * @throws InvalidArgumentException invalid paths
-     *
-     * @return static instance with the specified path
      */
     public function withPath(string $path): static;
 
@@ -262,8 +244,6 @@ interface UriInterface
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.3
-     *
-     * @return string URI path
      */
     public function getPath(): string;
 
@@ -278,11 +258,7 @@ interface UriInterface
      *
      * An empty query string value is equivalent to removing the query string.
      *
-     * @param string $query query string to use with the new instance
-     *
      * @throws InvalidArgumentException invalid query strings
-     *
-     * @return static instance with the specified query string
      */
     public function withQuery(string $query): static;
 
@@ -304,8 +280,6 @@ interface UriInterface
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.4
-     *
-     * @return string URI query string
      */
     public function getQuery(): string;
 
@@ -319,10 +293,6 @@ interface UriInterface
      * Implementations ensure the correct encoding as outlined in getFragment().
      *
      * An empty fragment value is equivalent to removing the fragment.
-     *
-     * @param string $fragment fragment to use with the new instance
-     *
-     * @return static instance with the specified URI fragment
      */
     public function withFragment(string $fragment): static;
 
@@ -340,8 +310,6 @@ interface UriInterface
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.5
-     *
-     * @return string URI fragment
      */
     public function getFragment(): string;
 }

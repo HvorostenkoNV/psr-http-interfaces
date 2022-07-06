@@ -40,10 +40,6 @@ interface RequestInterface extends MessageInterface
      * changed request target.
      *
      * @see http://tools.ietf.org/html/rfc7230#section-5.3
-     *
-     * @param string $requestTarget request target
-     *
-     * @return static instance with the specific request-target
      */
     public function withRequestTarget(string $requestTarget): static;
 
@@ -60,8 +56,6 @@ interface RequestInterface extends MessageInterface
      *
      * If no URI is available, and no request-target has been specifically
      * provided, this method MUST return the string "/".
-     *
-     * @return string request target
      */
     public function getRequestTarget(): string;
 
@@ -79,15 +73,11 @@ interface RequestInterface extends MessageInterface
      * @param string $method case-sensitive method
      *
      * @throws InvalidArgumentException invalid HTTP methods
-     *
-     * @return static instance with the provided HTTP method
      */
     public function withMethod(string $method): static;
 
     /**
      * Retrieves the HTTP method of the request.
-     *
-     * @return string request method
      */
     public function getMethod(): string;
 
@@ -120,8 +110,6 @@ interface RequestInterface extends MessageInterface
      *
      * @param UriInterface $uri          new request URI to use
      * @param bool         $preserveHost preserve the original state of the Host header
-     *
-     * @return static instance with the provided URI
      */
     public function withUri(UriInterface $uri, bool $preserveHost = false): static;
 
@@ -131,8 +119,6 @@ interface RequestInterface extends MessageInterface
      * This method MUST return a UriInterface instance.
      *
      * @see http://tools.ietf.org/html/rfc3986#section-4.3
-     *
-     * @return UriInterface URI of the request
      */
     public function getUri(): UriInterface;
 }

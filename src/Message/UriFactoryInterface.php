@@ -17,8 +17,6 @@ interface UriFactoryInterface
      * @param string $uri the URI to parse
      *
      * @throws InvalidArgumentException given URI cannot be parsed
-     *
-     * @return UriInterface URI
      */
     public function createUri(string $uri = ''): UriInterface;
 }

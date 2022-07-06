@@ -20,7 +20,7 @@ interface NetworkExceptionInterface extends ClientExceptionInterface
      * The request object MAY be a different object from the one
      * passed to ClientInterface::sendRequest().
      *
-     * @return RequestInterface request
+     * @see ClientInterface::sendRequest()
      */
     public function getRequest(): RequestInterface;
 }

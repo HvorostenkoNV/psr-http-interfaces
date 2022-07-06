@@ -25,18 +25,12 @@ interface MessageInterface
      *
      * This method MUST be implemented in such a way as to retain the immutability
      * of the message, and MUST return an instance that has the new protocol version.
-     *
-     * @param string $version HTTP protocol version
-     *
-     * @return static instance with the specified HTTP protocol version
      */
     public function withProtocolVersion(string $version): static;
 
     /**
      * Retrieves the HTTP protocol version as a string.
      * The string MUST contain only the HTTP version number (e.g., "1.1", "1.0").
-     *
-     * @return string HTTP protocol version
      */
     public function getProtocolVersion(): string;
 
@@ -54,9 +48,6 @@ interface MessageInterface
      * @param string|string[] $value header value(s)
      *
      * @throws InvalidArgumentException invalid header names or values
-     *
-     * @return static instance with the provided value
-     *                replacing the specified header
      */
     public function withHeader(string $name, string|array $value): static;
 
@@ -75,9 +66,6 @@ interface MessageInterface
      * @param string|string[] $value header value(s)
      *
      * @throws InvalidArgumentException invalid header names or values
-     *
-     * @return static instance with the specified header
-     *                appended with the given value
      */
     public function withAddedHeader(string $name, string|array $value): static;
 
@@ -91,8 +79,6 @@ interface MessageInterface
      * the named header.
      *
      * @param string $name case-insensitive header field name to remove
-     *
-     * @return static instance without the specified header
      */
     public function withoutHeader(string $name): static;
 
@@ -186,18 +172,12 @@ interface MessageInterface
      * immutability of the message, and MUST return a new instance that has the
      * new body stream.
      *
-     * @param StreamInterface $body body
-     *
      * @throws InvalidArgumentException body is not valid
-     *
-     * @return static instance with the specified message body
      */
     public function withBody(StreamInterface $body): static;
 
     /**
      * Gets the body of the message.
-     *
-     * @return StreamInterface body as a stream
      */
     public function getBody(): StreamInterface;
 }

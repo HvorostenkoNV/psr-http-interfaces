@@ -52,8 +52,6 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieves data related to the incoming request environment,
      * typically derived from PHP $_SERVER super global. The data IS NOT
      * REQUIRED to originate from $_SERVER.
-     *
-     * @return array server parameters
      */
     public function getServerParams(): array;
 
@@ -72,8 +70,6 @@ interface ServerRequestInterface extends RequestInterface
      * updated cookie values.
      *
      * @param array $cookies array of key/value pairs representing cookies
-     *
-     * @return static instance with the specified cookies
      */
     public function withCookieParams(array $cookies): static;
 
@@ -82,8 +78,6 @@ interface ServerRequestInterface extends RequestInterface
      *
      * Retrieves cookies sent by the client to the server.
      * The data MUST be compatible with the structure of the $_COOKIE super global.
-     *
-     * @return array cookies
      */
     public function getCookieParams(): array;
 
@@ -107,8 +101,6 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @param array $query array of query string arguments,
      *                     typically, from $_GET
-     *
-     * @return static instance with the specified query string arguments
      */
     public function withQueryParams(array $query): static;
 
@@ -121,8 +113,6 @@ interface ServerRequestInterface extends RequestInterface
      * params. If you need to ensure you are only getting the original
      * values, you may need to parse the query string from `getUri()->getQuery()`
      * or from the `QUERY_STRING` server param.
-     *
-     * @return array query string arguments
      */
     public function getQueryParams(): array;
 
@@ -136,8 +126,6 @@ interface ServerRequestInterface extends RequestInterface
      * @param array $uploadedFiles array tree of UploadedFileInterface instances
      *
      * @throws InvalidArgumentException invalid structure is provided
-     *
-     * @return static instance with the specified uploaded files
      */
     public function withUploadedFiles(array $uploadedFiles): static;
 
@@ -181,8 +169,6 @@ interface ServerRequestInterface extends RequestInterface
      *                                typically, be in an array or object.
      *
      * @throws InvalidArgumentException unsupported argument type is provided
-     *
-     * @return static instance with the specified body parameters
      */
     public function withParsedBody(null|array|object $data): static;
 
@@ -214,12 +200,6 @@ interface ServerRequestInterface extends RequestInterface
      * updated attribute.
      *
      * @see getAttributes()
-     *
-     * @param string $name  attribute name
-     * @param mixed  $value value of the attribute
-     *
-     * @return static instance with the specified derived
-     *                request attribute
      */
     public function withAttribute(string $name, mixed $value): static;
 
@@ -234,11 +214,6 @@ interface ServerRequestInterface extends RequestInterface
      * the attribute.
      *
      * @see getAttributes()
-     *
-     * @param string $name attribute name
-     *
-     * @return static instance that removes the specified
-     *                derived request attribute
      */
     public function withoutAttribute(string $name): static;
 
@@ -253,12 +228,6 @@ interface ServerRequestInterface extends RequestInterface
      * specifying a default value to return if the attribute is not found.
      *
      * @see getAttributes()
-     *
-     * @param string $name    attribute name
-     * @param mixed  $default default value to return if the attribute
-     *                        does not exist
-     *
-     * @return mixed derived request attribute
      */
     public function getAttribute(string $name, mixed $default = null): mixed;
 
@@ -270,8 +239,6 @@ interface ServerRequestInterface extends RequestInterface
      * match operations; the results of decrypting cookies; the results of
      * deserializing non-form-encoded message bodies; etc. Attributes
      * will be application and request specific, and CAN be mutable.
-     *
-     * @return array attributes derived from the request
      */
     public function getAttributes(): array;
 }

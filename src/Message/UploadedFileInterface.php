@@ -30,8 +30,6 @@ interface UploadedFileInterface
      * an exception.
      *
      * @throws RuntimeException no stream is available or no stream can be created
-     *
-     * @return StreamInterface stream representation of the uploaded file
      */
     public function getStream(): StreamInterface;
 
@@ -62,8 +60,6 @@ interface UploadedFileInterface
      *
      * @see http://php.net/is_uploaded_file
      * @see http://php.net/move_uploaded_file
-     *
-     * @param string $targetPath path to which to move the uploaded file
      *
      * @throws InvalidArgumentException $targetPath specified is invalid
      * @throws RuntimeException         on any error during the move operation or
